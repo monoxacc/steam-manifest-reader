@@ -38,8 +38,9 @@ namespace SteamManifestReader
                 {
                     foreach (DepotManifest.FileData filedata in depotManifest.Files)
                     {
+                        bool isDir = filedata.Flags == EDepotFileFlag.Directory;
                         string strHash = filedata.FileHash.Aggregate(new StringBuilder(), (sb, v) => sb.Append(v.ToString("x2"))).ToString().ToUpper();
-                        Console.WriteLine("{0} {1}", filedata.FileName, strHash);
+                        Console.WriteLine("{0} {1}", filedata.FileName, isDir ? "" : strHash);
                     }
                 }
 
