@@ -33,9 +33,9 @@ namespace SteamManifestReader
                 Console.WriteLine("Usage: SteamManifestReader.exe <input.manifest> [fciv_out.xml]");
                 return;
             }
-
-            Console.ReadLine();      
-
+#if DEBUG
+            Console.ReadLine();
+#endif
         }
 
         private static void HandleManifest()
