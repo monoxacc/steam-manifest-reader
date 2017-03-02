@@ -63,7 +63,10 @@ namespace SteamManifestReader
                     {
                         bool isDir = filedata.Flags == EDepotFileFlag.Directory;
                         string strHash = filedata.FileHash.Aggregate(new StringBuilder(), (sb, v) => sb.Append(v.ToString("x2"))).ToString().ToUpper();
-                        Console.WriteLine("{0} {1}", filedata.FileName, isDir ? "" : strHash);
+                        if (string.IsNullOrEmpty(outputFile))
+                        {
+                            Console.WriteLine("{0} {1}", filedata.FileName, isDir ? "" : strHash);
+                        }
 
                         if (!isDir)
                         {
