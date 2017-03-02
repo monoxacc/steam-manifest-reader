@@ -33,9 +33,9 @@ namespace SteamManifestReader
                 Console.WriteLine("Usage: SteamManifestReader.exe <input.manifest> [fciv_out.xml]");
                 return;
             }
-#if DEBUG
+
             Console.ReadLine();      
-#endif
+
         }
 
         private static void HandleManifest()
@@ -73,6 +73,11 @@ namespace SteamManifestReader
                     exporter.Finalize();
                 }
             }
+            else
+            {
+                Console.WriteLine("File {0} doesn't exists!", inputFile);
+            }
+
         }
     }
 }
